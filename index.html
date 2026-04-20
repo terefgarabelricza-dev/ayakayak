@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 Untuk Kamu yang Spesial</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
+    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+    
+    <style>
+        /* ============================================
+           CSS VARIABLES & RESET
+           ============================================ */
+        :root {
+            --pink-light: #fff0f5;
+            --pink-pastel: #ffb6c1;
+            --pink-medium: #ff69b4;
+            --pink-deep: #ff1493;
+            --pink-soft: #ffc0cb;
+            --white: #ffffff;
+            --text-dark: #5c374c;
+            --text-light: #8b5a7c;
+            --gold: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--pink-light) 0%, #ffe4ec 50%, #fff5f8 100%);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml,<svg xmlns="[w3.org](http://www.w3.org/2000/svg)" width="24" height="24" viewBox="0 0 24 24"><text y="18" font-size="18">💗</text></svg>'), auto;
+        }
+
+        /* ============================================
+           FLOATING HEARTS BACKGROUND
+           ============================================ */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            bottom: -50px;
+            animation: floatUp linear infinite;
+            opacity: 0.6;
+            font-size: 20px;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           SPARKLE EFFECTS
+           ============================================ */
+        .sparkle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* ============================================
+           SECTION BASE STYLES
+           ============================================ */
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* ============================================
+           SECTION 1: LANDING / OPENING
+           ============================================ */
+        #landing {
+            background: linear-gradient(180deg, #ffe4ec 0%, #ffb6c1 50%, #ff69b4 100%);
+            text-align: center;
+        }
+
+        .landing-content {
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .landing-emoji {
+            font-size: 80px;
+            animation: bounce 2s ease-in-out infinite;
+            margin-bottom: 30px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .landing-title {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 8vw, 4rem);
+            color: var(--white);
+            text-shadow: 2px 2px 10px rgba(255, 105, 180, 0.5);
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .landing-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: var(--white);
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
+            color: var(--pink-deep);
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.2rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 20, 147, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.4);
+        }
+
+        .btn-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-main:hover::before {
+            left: 100%;
+        }
+
+        /* ============================================
+           SECTION 2: PERKENALAN
+           ============================================ */
+        #perkenalan {
+            background: linear-gradient(180deg, var(--pink-light) 0%, var(--white) 100%);
+            padding: 80px 20px;
+        }
+
+        .perkenalan-container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .typing-text {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: var(--text-dark);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            line-height: 1.5;
+        }
+
+        .typing-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typing-text .emoji {
+            display: inline-block;
+            animation: wiggle 1s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        /* ============================================
+           SECTION 3: GALERI FOTO
+           ============================================ */
+        #galeri {
+            background: linear-gradient(180deg, var(--white) 0%, #ffe4ec 100%);
+            padding: 80px 20px;
+        }
+
+        .galeri-title {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--pink-deep);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .galeri-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .foto-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.2);
+            transition: all 0.4s ease;
+            transform: rotate(var(--rotation, 0deg));
+        }
+
+        .foto-card:nth-child(odd) { --rotation: -2deg; }
+        .foto-card:nth-child(even) { --rotation: 2deg; }
+
+        .foto-card:hover {
+            transform: rotate(0deg) scale(1.05) translateY(-10px);
+            box-shadow: 0 20px 50px rgba(255, 105, 180, 0.3);
+        }
+
+        .foto-frame {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--pink-pastel), var(--pink-soft));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .foto-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .foto-card:hover .foto-frame img {
+            transform: scale(1.1);
+        }
+
+        .foto-placeholder {
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        .foto-caption {
+            font-family: 'Caveat', cursive;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            text-align: center;
+            margin-top: 15px;
+            padding: 5px;
+        }
+
+        /* Decorative tape effect */
+        .foto-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 25px;
+            background: linear-gradient(135deg, rgba(255, 182, 193, 0.7), rgba(255, 192, 203, 0.5));
+            border-radius: 3px;
+            z-index: 1;
+        }
+
+        /* ============================================
+           SECTION 4: LONG ROMANTIC TEXT
+           ============================================ */
+        #cerita {
+            background: linear-gradient(180deg, #ffe4ec 0%, var(--pink-soft) 50%, #ffe4ec 100%);
+            padding: 100px 20px;
+        }
+
+        .cerita-container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .cerita-title {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--pink-deep);
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .cerita-paragraph {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+            position: relative;
+        }
+
+        .cerita-paragraph.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cerita-paragraph::before {
+            content: '💕';
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            font-size: 1.5rem;
+        }
+
+        .cerita-paragraph:nth-child(even)::before {
+            content: '🌸';
+        }
+
+        .cerita-paragraph:nth-child(3n)::before {
+            content: '✨';
+        }
+
+        .highlight {
+            background: linear-gradient(180deg, transparent 60%, rgba(255, 182, 193, 0.5) 60%);
+            padding: 0 5px;
+        }
+
+        /* ============================================
+           SECTION 5: CONFESSION MOMENT
+           ============================================ */
+        #confession {
+            background: linear-gradient(180deg, var(--pink-soft) 0%, var(--pink-medium) 50%, var(--pink-deep) 100%);
+            text-align: center;
+        }
+
+        .confession-content {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .confession-heart {
+            font-size: 100px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+            margin-bottom: 40px;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            35% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            55% { transform: scale(1); }
+        }
+
+        .confession-text {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2.5rem, 10vw, 5rem);
+            color: var(--white);
+            text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+            animation: glowText 2s ease-in-out infinite alternate;
+            margin-bottom: 20px;
+        }
+
+        @keyframes glowText {
+            from {
+                text-shadow: 3px 3px 20px rgba(255, 255, 255, 0.3);
+            }
+            to {
+                text-shadow: 3px 3px 40px rgba(255, 255, 255, 0.8),
+                             0 0 60px rgba(255, 255, 255, 0.5);
+            }
+        }
+
+        .confession-subtext {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 20px;
+        }
+
+        /* ============================================
+           SECTION 6: PERTANYAAN
+           ============================================ */
+        #pertanyaan {
+            background: linear-gradient(180deg, var(--pink-deep) 0%, #c71585 100%);
+            text-align: center;
+        }
+
+        .pertanyaan-content {
+            max-width: 600px;
+        }
+
+        .pertanyaan-text {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            color: var(--white);
+            margin-bottom: 50px;
+            line-height: 1.4;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn-yes, .btn-no {
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-yes {
+            background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
+            color: var(--pink-deep);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-no {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: 2px solid var(--white);
+            position: relative;
+        }
+
+        .btn-no:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ============================================
+           SECTION 7: HASIL (YES/MAYBE)
+           ============================================ */
+        #hasil-yes, #hasil-maybe {
+            display: none;
+            background: linear-gradient(180deg, #ff69b4 0%, #ff1493 50%, #c71585 100%);
+            text-align: center;
+        }
+
+        #hasil-yes.active, #hasil-maybe.active {
+            display: flex;
+        }
+
+        .hasil-content {
+            animation: zoomIn 0.8s ease;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hasil-emoji {
+            font-size: 120px;
+            margin-bottom: 30px;
+            animation: jump 0.6s ease infinite;
+        }
+
+        @keyframes jump {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .hasil-text {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 8vw, 4rem);
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .hasil-subtext {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 500px;
+            line-height: 1.6;
+        }
+
+        .btn-maybe-hint {
+            margin-top: 30px;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
+            background: var(--white);
+            color: var(--pink-deep);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-maybe-hint:hover {
+            transform: scale(1.05);
+        }
+
+        /* ============================================
+           CONFETTI EFFECT
+           ============================================ */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+            display: none;
+        }
+
+        .confetti-container.active {
+            display: block;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            animation: confettiFall linear forwards;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100%) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* ============================================
+           MUSIC CONTROL
+           ============================================ */
+        .music-control {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            background: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+        }
+
+        .music-control.playing {
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4); }
+            50% { box-shadow: 0 5px 40px rgba(255, 105, 180, 0.8); }
+        }
+
+        /* ============================================
+           SCROLL INDICATOR
+           ============================================ */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: scrollBounce 2s ease-in-out infinite;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(15px); }
+        }
+
+        /* ============================================
+           RIBBON DECORATION
+           ============================================ */
+        .ribbon {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .ribbon-top-left {
+            top: 0;
+            left: 0;
+        }
+
+        .ribbon-top-left::before {
+            content: '💝';
+            position: absolute;
+            font-size: 3rem;
+            top: 20px;
+            left: 20px;
+            transform: rotate(-45deg);
+        }
+
+        .ribbon-top-right {
+            top: 0;
+            right: 0;
+        }
+
+        .ribbon-top-right::before {
+            content: '💖';
+            position: absolute;
+            font-size: 3rem;
+            top: 20px;
+            right: 20px;
+            transform: rotate(45deg);
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 768px) {
+            .btn-main {
+                padding: 15px 35px;
+                font-size: 1rem;
+            }
+
+            .foto-card {
+                padding: 10px;
+            }
+
+            .cerita-paragraph {
+                padding: 20px 25px;
+            }
+
+            .btn-yes, .btn-no {
+                padding: 15px 35px;
+                font-size: 1.1rem;
+            }
+
+            .music-control {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .galeri-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            section {
+                padding: 60px 15px;
+            }
+
+            .landing-emoji {
+                font-size: 60px;
+            }
+
+            .confession-heart {
+                font-size: 70px;
+            }
+
+            .hasil-emoji {
+                font-size: 80px;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .btn-yes, .btn-no {
+                width: 100%;
+            }
+        }
+
+        /* ============================================
+           TRANSITION OVERLAY
+           ============================================ */
+        .transition-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--pink-medium);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+        }
+
+        .transition-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .transition-overlay .heart-loader {
+            font-size: 4rem;
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay">
+        <span class="heart-loader">💕</span>
+    </div>
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confettiContainer"></div>
+
+    <!-- Music Control -->
+    <div class="music-control" id="musicControl" title="Toggle Music">
+        🎵
+    </div>
+
+    <!-- ============================================
+         SECTION 1: LANDING
+         ============================================ -->
+    <section id="landing">
+        <div class="ribbon ribbon-top-left"></div>
+        <div class="ribbon ribbon-top-right"></div>
+        
+        <div class="landing-content">
+            <div class="landing-emoji">💌</div>
+            <h1 class="landing-title">Eh Anomali..<br>Gua ada sesuatu nih mapre🤍</h1>
+            <p class="landing-subtitle">Jan di pencet tar nyesel,Cius dah...</p>
+            <button class="btn-main" onclick="startJourney()">
+                Jan di pencet tar nyesel,Cius dah...
+            </button>
+        </div>
+        
+        <div class="scroll-indicator">👇</div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2: PERKENALAN
+         ============================================ -->
+    <section id="perkenalan">
+        <div class="perkenalan-container">
+            <p class="typing-text" data-delay="0">
+                Awalnya biasa aja sih... <span class="emoji">🤔</span>
+            </p>
+            <p class="typing-text" data-delay="300">
+                Kamu tuh ya, cuma orang yang ketemu di organisasi doang
+            </p>
+            <p class="typing-text" data-delay="600">
+                Tapi entah kenapa...<br>lama-lama jadi beda <span class="emoji">😳</span>
+            </p>
+            <p class="typing-text" data-delay="900">
+                Sekarang? Kamu jadi orang yang makin hari makin <span class="highlight">Absurd </span>
+            </p>
+            <p class="typing-text" data-delay="1200">
+                Dan gua mau ceritain semuanya ke lu.. <span class="emoji">💭</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 3: GALERI FOTO
+         ============================================ -->
+    <section id="galeri">
+        <h2 class="galeri-title">✨ Sosok Aslie Anomali ✨</h2>
+        
+        <div class="galeri-grid">
+            <!-- FOTO 1 - Ganti src dengan foto kamu -->
+            <div class="foto-card">
+                <div class="foto-frame">
+                    <!-- Ganti placeholder dengan: <img src="foto1.jpg" alt="Foto 1"> -->
+                    <img src="assets/slide 1.jpeg" alt="Foto 1">
+                </div>
+                <p class="foto-caption"> El Yapping </p>
+            </div>
+
+            <!-- FOTO 2 -->
+            <div class="foto-card">
+                <div class="foto-frame">
+                    <img src="assets/slide 2.jpeg" alt="Foto 2">
+                </div>
+                <p class="foto-caption">Mie ayam kalo jadi cewe gini? </p>
+            </div>
+
+            <!-- FOTO 3 -->
+            <div class="foto-card">
+                <div class="foto-frame">
+                    <img src="assets/slide 3.jpeg" alt="Foto 3">
+                </div>
+                <p class="foto-caption">Aduh Matcha Latte </p>
+            </div>
+
+            <!-- FOTO 4 -->
+            <div class="foto-card">
+                <div class="foto-frame">
+                    <img src="assets/slide 4.jpeg" alt="Foto 4">
+                </div>
+                <p class="foto-caption">Aduh kaka emci empe el es </p>
+            </div>
+
+            <!-- FOTO 5 -->
+            <div class="foto-card">
+                <div class="foto-frame">
+                    <img src="assets/slide 5.jpeg" alt="Foto 5">
+                </div>
+                <p class="foto-caption">Matcha Kalo Jadi Orang </p> 
+            </div>
+
+            <!-- FOTO 6 -->
+            <div class="foto-card">
+                <div class="foto-frame">
+                    <img src="assets/slide 6.jpeg" alt="Foto 6">
+                </div>
+                <p class="foto-caption">El Mio Hitam </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: CERITA PANJANG
+         ============================================ -->
+    <section id="cerita">
+        <div class="cerita-container">
+            <h2 class="cerita-title">💭 Real Or Madrid  💭</h2>
+
+            <!-- PARAGRAF 1 -->
+            <div class="cerita-paragraph">
+                <p>Jujur ya, aku nggak tau kapan persisnya semua ini mulai. Yang aku tau, tiba-tiba aja kamu jadi orang pertama yang kepikiran waktu bangun tidur. Aneh kan? Padahal awalnya cuma... ya gitu deh, biasa aja. Tapi sekarang? <span class="highlight">Kamu kayak notifikasi yang selalu kutunggu</span>. 📱✨</p>
+            </div>
+
+            <!-- PARAGRAF 2 -->
+            <div class="cerita-paragraph">
+                <p>Kamu tau nggak? Ada satu momen yang bikin aku sadar kalau perasaan ini beda. Waktu kamu ketawa lepas, mata kamu tuh kayak ada bintang-bintangnya. Cheesy banget ya? Tapi beneran! Dari situ aku mulai <span class="highlight">"yah... kayaknya aku kenapa-kenapa nih"</span> 🥲</p>
+            </div>
+
+            <!-- PARAGRAF 3 -->
+            <div class="cerita-paragraph">
+                <p>Yang bikin aku makin suka, kamu tuh nggak cuma lucu atau manis. Kamu genuine. Kamu baik tanpa dibuat-buat. Kamu perhatian sama hal-hal kecil. Dan yang paling penting... <span class="highlight">kamu bikin aku jadi versi terbaik dari diriku sendiri</span>. Nggak semua orang bisa kayak gitu loh! 🌻</p>
+            </div>
+
+            <!-- PARAGRAF 4 -->
+            <div class="cerita-paragraph">
+                <p>Kadang aku mikir, "Ini cuma kagum doang kali ya?" Tapi ternyata bukan. Kagum mah nggak bikin jantung dag dig dug setiap kali nama kamu muncul. Kagum nggak bikin aku <span class="highlight">stalking story kamu 27 kali sehari</span>... Okay itu lebay, tapi kamu paham lah maksudnya! 😆</p>
+            </div>
+
+            <!-- PARAGRAF 5 -->
+            <div class="cerita-paragraph">
+                <p>Aku suka cara kamu ngobrol, cara kamu mikir, bahkan cara kamu diem aja. Semua yang ada di kamu tuh kayak... <span class="highlight">puzzle piece yang pas banget buat aku</span>. Nggak sempurna, tapi perfect di mataku. Halah, bisa aja aku ngerangkai kata-kata ya, padahal di depan kamu pasti gugup. 🙈</p>
+            </div>
+
+            <!-- PARAGRAF 6 -->
+            <div class="cerita-paragraph">
+                <p>So here I am, nulis semua ini karena nggak kuat lagi simpan sendiri. Tiap hari mikirin kamu tuh capek tau! Capek tapi seneng sih, aneh ya manusia. Yang jelas, <span class="highlight">aku mau kamu tau kalau ada seseorang di luar sana yang mikirin kamu setiap hari</span>. Dan orang itu... ya aku. 💝</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: CONFESSION
+         ============================================ -->
+    <section id="confession">
+        <div class="confession-content">
+            <div class="confession-heart">💖</div>
+            <h2 class="confession-text">Lu Cakep Jujur aja gw mah </h2>
+            <p class="confession-subtext">
+                 Bukan bermaksud suka apa gimana ya ini,tapi kan kita bespren for eper </br>
+                Tapi suka yang bikin aku mau usaha buat kamu
+            </p>
+        </div>
+        <div class="scroll-indicator">👇</div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: PERTANYAAN
+         ============================================ -->
+    <section id="pertanyaan">
+        <div class="pertanyaan-content">
+            <p class="pertanyaan-text">
+                Lu mau nggak...<br>
+                jadi lu mau kaga temenan tanpa bawa perasaan?
+            </p>
+            
+            <div class="btn-container">
+                <button class="btn-yes" onclick="handleYes()">
+                    Iya, aku mau
+                </button>
+                <button class="btn-no" id="btnNo" onclick="handleNo()">
+                     Ga mau, mending epepan aja deh
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7A: HASIL YES
+         ============================================ -->
+    <section id="hasil-yes">
+        <div class="hasil-content">
+            <div class="hasil-emoji">🎉🎉</div>
+            <h2 class="hasil-text">YAAAA </h2> 
+            <p class="hasil-subtext">
+                Yaudah Iya Yaudah kan, Yyyaudahhh
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7B: HASIL MAYBE
+         ============================================ -->
+    <section id="hasil-maybe">
+        <div class="hasil-content">
+            <div class="hasil-emoji">🙈</div>
+            <h2 class="hasil-text">Coba lu pencet lagi </h2>
+            <p class="hasil-subtext">
+                Lari kan tombolnya, mangkanya mandi dulu biar ga bau </br>
+                Pencet ampe lu pegel coba
+            </p>
+            <button class="btn-maybe-hint" onclick="backToQuestion()">
+                Eaaak di ejek ama monyet
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         JAVASCRIPT
+         ============================================ -->
+    <script>
+        // ============================================
+        // FLOATING HEARTS GENERATOR
+        // ============================================
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['💕', '💖', '💗', '💓', '💝', '🩷', '❤️', '🤍', '💜'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                heart.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                container.appendChild(heart);
+
+                setTimeout(() => heart.remove(), 13000);
+            }, 400);
+        }
+
+        // ============================================
+        // SPARKLE EFFECT ON MOUSE MOVE
+        // ============================================
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = x + 'px';
+            sparkle.style.top = y + 'px';
+            sparkle.style.background = ['#ffd700', '#ff69b4', '#fff', '#ffb6c1'][Math.floor(Math.random() * 4)];
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => sparkle.remove(), 1500);
+        }
+
+        let sparkleThrottle = false;
+        document.addEventListener('mousemove', (e) => {
+            if (!sparkleThrottle) {
+                sparkleThrottle = true;
+                createSparkle(e.clientX, e.clientY);
+                setTimeout(() => sparkleThrottle = false, 100);
+            }
+        });
+
+        // ============================================
+        // START JOURNEY (LANDING BUTTON)
+        // ============================================
+        function startJourney() {
+            const overlay = document.getElementById('transitionOverlay');
+            overlay.classList.add('active');
+            
+            setTimeout(() => {
+                document.getElementById('perkenalan').scrollIntoView({ behavior: 'auto' });
+                overlay.classList.remove('active');
+                animatePerkenalanTexts();
+            }, 800);
+        }
+
+        // ============================================
+        // ANIMATE PERKENALAN TEXTS
+        // ============================================
+        function animatePerkenalanTexts() {
+            const texts = document.querySelectorAll('#perkenalan .typing-text');
+            texts.forEach((text, index) => {
+                setTimeout(() => {
+                    text.classList.add('visible');
+                }, index * 600);
+            });
+        }
+
+        // ============================================
+        // SCROLL ANIMATION OBSERVER
+        // ============================================
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe cerita paragraphs
+        document.querySelectorAll('.cerita-paragraph').forEach(p => observer.observe(p));
+
+        // ============================================
+        // HANDLE YES BUTTON
+        // ============================================
+        function handleYes() {
+            // Hide question section
+            document.getElementById('pertanyaan').style.display = 'none';
+            
+            // Show yes result
+            const hasilYes = document.getElementById('hasil-yes');
+            hasilYes.classList.add('active');
+            hasilYes.scrollIntoView({ behavior: 'smooth' });
+            
+            // Trigger confetti
+            createConfetti();
+            
+            // Add extra floating hearts
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => createSingleHeart(), i * 100);
+            }
+        }
+
+        function createSingleHeart() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['💕', '💖', '💗', '💓', '💝'];
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (Math.random() * 25 + 20) + 'px';
+            heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), 8000);
+        }
+
+        // ============================================
+        // CONFETTI EFFECT
+        // ============================================
+        function createConfetti() {
+            const container = document.getElementById('confettiContainer');
+            container.classList.add('active');
+            
+            const colors = ['#ff69b4', '#ffb6c1', '#ffd700', '#ff1493', '#fff', '#ffc0cb'];
+            const shapes = ['💕', '💖', '✨', '🎀', '💝', '🩷', '🎉'];
+            
+            for (let i = 0; i < 150; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.innerHTML = shapes[Math.floor(Math.random() * shapes.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    confetti.style.fontSize = (Math.random() * 15 + 15) + 'px';
+                    container.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 4000);
+                }, i * 30);
+            }
+            
+            setTimeout(() => container.classList.remove('active'), 6000);
+        }
+
+        // ============================================
+        // HANDLE NO BUTTON (PLAYFUL ESCAPE)
+        // ============================================
+        let noClickCount = 0;
+        const funnyMessages = [
+            "Ea Gakena haha",
+            "Kejar lagi coba! 🏃‍♂️",
+            "Lah Kok Kabur? 😆",
+            "Tombolnya kabur nih! 🏃‍♀️",
+            "Aya Belom Mandi? 🛁",
+        ];
+
+        function handleNo() {
+            noClickCount++;
+            
+            const btnNo = document.getElementById('btnNo');
+            
+            if (noClickCount < 3) {
+                // Move button randomly
+                const maxX = window.innerWidth - btnNo.offsetWidth - 50;
+                const maxY = window.innerHeight - btnNo.offsetHeight - 50;
+                
+                btnNo.style.position = 'fixed';
+                btnNo.style.left = Math.random() * maxX + 'px';
+                btnNo.style.top = Math.random() * maxY + 'px';
+                btnNo.style.zIndex = '100';
+                btnNo.textContent = funnyMessages[noClickCount - 1];
+            } else {
+                // Show maybe result
+                document.getElementById('pertanyaan').style.display = 'none';
+                const hasilMaybe = document.getElementById('hasil-maybe');
+                hasilMaybe.classList.add('active');
+                hasilMaybe.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function backToQuestion() {
+            // Reset
+            document.getElementById('hasil-maybe').classList.remove('active');
+            document.getElementById('pertanyaan').style.display = 'flex';
+            
+            const btnNo = document.getElementById('btnNo');
+            btnNo.style.position = 'static';
+            btnNo.textContent = '🙈 Coba lagi Kalo beruntung';
+            noClickCount = 0;
+            
+            document.getElementById('pertanyaan').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ============================================
+        // MUSIC CONTROL
+        // ============================================
+        const musicControl = document.getElementById('musicControl');
+        let isPlaying = false;
+        let audio = null;
+
+        // Menggunakan lagu romantis dari URL publik
+        // Ganti URL ini dengan lagu pilihan kamu
+        const musicUrl = '[soundhelix.com](https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3)';
+
+        musicControl.addEventListener('click', () => {
+            if (!audio) {
+                audio = new Audio(musicUrl);
+                audio.loop = true;
+                audio.volume = 0.3;
+            }
+
+            if (isPlaying) {
+                audio.pause();
+                musicControl.textContent = '🎵';
+                musicControl.classList.remove('playing');
+            } else {
+                audio.play().catch(e => {
+                    console.log('Audio autoplay prevented');
+                });
+                musicControl.textContent = '🔊';
+                musicControl.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // ============================================
+        // INITIALIZE
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            createFloatingHearts();
+            
+            // Initial animation for landing page elements
+            setTimeout(() => {
+                document.querySelector('.landing-content').style.opacity = '1';
+            }, 300);
+        });
+
+        // ============================================
+        // SMOOTH SCROLL FOR ALL INTERNAL LINKS
+        // ============================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // ============================================
+        // PARALLAX EFFECT ON SCROLL (SUBTLE)
+        // ============================================
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hearts = document.getElementById('floatingHearts');
+            if (hearts) {
+                hearts.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
